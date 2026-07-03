@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harry Greatorex, PhD — Solar Physicist &amp; Research Scientist</title>
+<meta name="description" content="Harry Greatorex — Postdoctoral Research Fellow at Queen's University Belfast. Solar physics, data science, publications, and CVs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdfcfa;
+    --surface: #ffffff;
+    --ink: #1c1b1a;
+    --muted: #6b6660;
+    --accent: #c25e00;
+    --accent-soft: #fbf1e6;
+    --line: #e8e4de;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.2; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(253,252,250,.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+  nav .links a { color: var(--muted); font-size: .9rem; margin-left: 22px; font-weight: 500; }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 640px) { nav .links a { margin-left: 14px; font-size: .82rem; } }
+
+  /* Hero */
+  header { padding: 72px 0 56px; }
+  .hero { display: flex; gap: 44px; align-items: center; }
+  @media (max-width: 700px) { .hero { flex-direction: column; text-align: center; } }
+  .avatar {
+    width: 190px; height: 190px; border-radius: 50%; object-fit: cover; object-position: top;
+    border: 4px solid var(--surface); box-shadow: 0 4px 24px rgba(28,27,26,.12); flex-shrink: 0;
+  }
+  .avatar-fallback {
+    width: 190px; height: 190px; border-radius: 50%; flex-shrink: 0;
+    background: var(--accent-soft); color: var(--accent);
+    display: none; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 3.2rem; font-weight: 600;
+    border: 4px solid var(--surface); box-shadow: 0 4px 24px rgba(28,27,26,.12);
+  }
+  .hero h1 { font-size: 2.6rem; margin-bottom: 6px; }
+  .hero .tagline { color: var(--accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
+  .hero .sub { color: var(--muted); font-size: .98rem; margin-bottom: 18px; }
+  .icon-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  @media (max-width: 700px) { .icon-row { justify-content: center; } }
+  .icon-row a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--surface); color: var(--ink); font-size: .87rem; font-weight: 500;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .icon-row a:hover { text-decoration: none; border-color: var(--accent); box-shadow: 0 2px 10px rgba(194,94,0,.12); }
+  .icon-row svg { width: 16px; height: 16px; fill: var(--accent); }
+
+  /* Sections */
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 1.55rem; margin-bottom: 22px; }
+  section h2::after { content: ""; display: block; width: 44px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 8px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; transition: box-shadow .15s, border-color .15s;
+  }
+  .card:hover { border-color: #d8d2ca; box-shadow: 0 4px 18px rgba(28,27,26,.06); }
+  .card h3 { font-size: 1.12rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .93rem; }
+  .card .cta {
+    display: inline-block; margin-top: 14px; padding: 9px 18px; border-radius: 8px;
+    background: var(--accent); color: #fff; font-size: .88rem; font-weight: 600;
+  }
+  .card .cta:hover { text-decoration: none; filter: brightness(1.08); }
+  .badge {
+    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+
+  /* Publications */
+  .pub { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .pub:last-of-type { border-bottom: none; }
+  .pub .authors { font-size: .9rem; color: var(--muted); }
+  .pub .authors strong { color: var(--ink); }
+  .pub .title { font-weight: 500; margin: 2px 0; }
+  .pub .venue { font-size: .85rem; color: var(--accent); font-style: italic; }
+  .pub-note { margin-top: 16px; font-size: .9rem; color: var(--muted); }
+
+  /* Skills */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; font-size: .85rem; color: var(--ink);
+  }
+  .skill-group { margin-bottom: 18px; }
+  .skill-group h3 { font-size: .95rem; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em; font-size: .78rem; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 36px 0 48px; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer a { font-weight: 500; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Harry Greatorex</span>
+    <span class="links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CVs</a>
+      <a href="#contact">Contact</a>
+    </span>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="hero">
+    <img class="avatar" src="assets/profile.jpg" alt="Harry Greatorex" onerror="this.style.display='none';document.getElementById('av-fb').style.display='flex';">
+    <div class="avatar-fallback" id="av-fb">HG</div>
+    <div>
+      <h1>Harry Greatorex, PhD</h1>
+      <p class="tagline">Solar Physicist &middot; Research Scientist</p>
+      <p class="sub">Postdoctoral Research Fellow, Astrophysics Research Centre<br>Queen's University Belfast</p>
+      <div class="icon-row">
+        <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.11-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://orcid.org/0000-0002-5302-0887" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 17.63H5.71V7.9h1.66v9.73zm-.83-10.86a1.06 1.06 0 1 1 0-2.13 1.06 1.06 0 0 1 0 2.13zm11.63 6.02c0 2.98-2.02 4.84-5.05 4.84H9.75V7.9h3.42c3 0 5 1.86 5 4.89zm-5.13-3.4h-1.63v6.75h1.63c2.19 0 3.42-1.25 3.42-3.35 0-2.13-1.23-3.4-3.42-3.4z"/></svg>
+          ORCID
+        </a>
+        <a href="https://github.com/HGreatorex" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.5 0 12.29c0 5.43 3.44 10.03 8.2 11.66.6.11.82-.27.82-.6l-.01-2.1c-3.34.74-4.04-1.65-4.04-1.65-.55-1.42-1.33-1.8-1.33-1.8-1.09-.76.08-.75.08-.75 1.2.09 1.84 1.27 1.84 1.27 1.07 1.88 2.81 1.34 3.49 1.02.11-.79.42-1.34.76-1.64-2.66-.31-5.47-1.37-5.47-6.08 0-1.34.47-2.44 1.24-3.3-.13-.31-.54-1.56.11-3.25 0 0 1.01-.33 3.3 1.26a11.2 11.2 0 0 1 6.01 0c2.29-1.6 3.3-1.26 3.3-1.26.66 1.69.24 2.94.12 3.25.77.86 1.23 1.96 1.23 3.3 0 4.72-2.81 5.76-5.49 6.07.43.38.82 1.13.82 2.28l-.01 3.38c0 .33.22.72.83.6C20.57 22.3 24 17.71 24 12.29 24 5.5 18.63 0 12 0z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:hgreatorex01@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I'm a solar physicist and computationally focused researcher based at the Astrophysics Research Centre, Queen's University Belfast. My research explores the physics of solar flares — from Lyman-alpha emission to the EUV Late-Phase — using multi-wavelength observations from missions including SDO, GOES, and Solar Orbiter.</p>
+    <p style="margin-top:14px;">Alongside my academic work, I bring over five years of experience in scientific Python programming, automated data pipelines, machine learning, and statistical analysis of large, complex datasets. I've led the largest statistical study of EUV Late-Phase flares to date, spent a research placement at NASA Goddard Space Flight Center, and serve on international science teams including ISSI and the SoSpIM instrument team for JAXA's Solar-C mission.</p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research Highlights</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>EUV Late-Phase Flares</h3>
+        <p>Led the largest statistical study of EUV Late-Phase flares to date (2010–2025), combining automated and manual analysis of SDO/AIA, SDO/EVE, and GOES observations to examine ELP occurrence, timing, and energetics.</p>
+      </div>
+      <div class="card">
+        <h3>Lyman-alpha Emission in Flares</h3>
+        <p>PhD research on observational analysis of Lyman-alpha emission in solar flares, including instrumental cross-calibration and the relationship between nonthermal electrons and chromospheric emission.</p>
+      </div>
+      <div class="card">
+        <h3>Data Pipelines &amp; Machine Learning</h3>
+        <p>Built end-to-end Python pipelines for multi-thousand-event flare analysis and deployed supervised ML models (PyTorch) to classify weak signals in noisy observational datasets.</p>
+      </div>
+      <div class="card">
+        <h3>Sun–Earth Connection</h3>
+        <p>Collaborating with geophysics and space weather experts on the impact of flare-related emission on Earth's ionosphere, as solar physics specialist within an international ISSI team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <h2>Selected Publications</h2>
+    <div class="pub">
+      <p class="title">The EUV Late-Phase: Statistical Results from 15 Years of Solar Dynamics Observatory Observations</p>
+      <p class="authors"><strong>Greatorex H.J.</strong>, O'Hare A.N., Bekker S., Campbell R.C., Keane D.C., Milligan R.O.</p>
+      <p class="venue">Solar Physics (accepted, 2026)</p>
+    </div>
+    <div class="pub">
+      <p class="title">Investigating a Characteristic Time Lag in the Ionospheric F-Region's Response to Solar Flares</p>
+      <p class="authors">O'Hare A.N., Bekker S., <strong>Greatorex H.J.</strong>, Milligan R.O.</p>
+      <p class="venue">Atmosphere (2025)</p>
+    </div>
+    <div class="pub">
+      <p class="title">Spectral Irradiance Variability in Lyman-Alpha Emission During Solar Flares</p>
+      <p class="authors">Majury L., Milligan R.O., Butler E., <strong>Greatorex H.J.</strong>, Kazachenko M.</p>
+      <p class="venue">Solar Physics (2025)</p>
+    </div>
+    <div class="pub">
+      <p class="title">On the Instrumental Discrepancies in Lyman-alpha Observations of Solar Flares</p>
+      <p class="authors"><strong>Greatorex H.J.</strong>, Milligan R.O., Dammasch I.E.</p>
+      <p class="venue">Solar Physics (2024)</p>
+    </div>
+    <div class="pub">
+      <p class="title">Observational Analysis of Lyman-alpha Emission in Equivalent Magnitude Solar Flares</p>
+      <p class="authors"><strong>Greatorex H.J.</strong>, Milligan R.O., Chamberlin P.C.</p>
+      <p class="venue">Astrophysical Journal (2023)</p>
+    </div>
+    <p class="pub-note">Full publication record on <a href="https://orcid.org/0000-0002-5302-0887" target="_blank" rel="noopener">ORCID</a>.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Programming &amp; Tools</h3>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">NumPy / pandas / SciPy</span><span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">SunPy / Astropy</span><span class="chip">SQL</span><span class="chip">IDL (SolarSoft)</span><span class="chip">Linux / Bash</span><span class="chip">Git</span><span class="chip">LaTeX</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Data &amp; Systems</h3>
+      <div class="chips">
+        <span class="chip">Large-scale data analysis</span><span class="chip">Machine learning</span><span class="chip">Pipeline development</span><span class="chip">High-performance computing</span><span class="chip">Instrument calibration</span><span class="chip">Statistical analysis</span><span class="chip">Data visualisation</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Leadership &amp; Communication</h3>
+      <div class="chips">
+        <span class="chip">Project leadership</span><span class="chip">Mentoring &amp; supervision</span><span class="chip">Peer-reviewed publication</span><span class="chip">Conference speaking</span><span class="chip">Science outreach</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="wrap">
+    <h2>Curriculum Vitae</h2>
+    <div class="two-col">
+      <div class="card">
+        <span class="badge">Academic</span>
+        <h3>Academic CV</h3>
+        <p>Research experience, publications, conferences, funding, teaching, and outreach — for academic and research positions.</p>
+        <a class="cta" href="assets/Greatorex_CV_Academic.pdf" download>Download PDF</a>
+      </div>
+      <div class="card">
+        <span class="badge">Industry</span>
+        <h3>Professional CV</h3>
+        <p>Data science, machine learning, pipeline development, and project leadership — for industry and technical roles.</p>
+        <a class="cta" href="assets/H_Greatorex_CV.pdf" download>Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>The best way to reach me is by email at <a href="mailto:hgreatorex01@gmail.com">hgreatorex01@gmail.com</a> (or <a href="mailto:h.greatorex@qub.ac.uk">h.greatorex@qub.ac.uk</a> for academic matters), or connect with me on <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Harry Greatorex &middot; <a href="https://orcid.org/0000-0002-5302-0887" target="_blank" rel="noopener">ORCID</a> &middot; <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">LinkedIn</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
