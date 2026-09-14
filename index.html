@@ -4,121 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harry Greatorex, PhD — Solar Physicist &amp; Research Scientist</title>
-<meta name="description" content="Harry Greatorex — Postdoctoral Research Fellow at Queen's University Belfast. Solar physics, data science, publications, and CVs.">
+<meta name="description" content="Harry Greatorex — Postdoctoral Research Fellow at Queen's University Belfast. Solar physics, data science, publications, talks and CVs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fdfcfa;
+    --bg: #fbfcfb;
     --surface: #ffffff;
-    --ink: #1c1b1a;
-    --muted: #6b6660;
-    --accent: #c25e00;
-    --accent-soft: #fbf1e6;
-    --line: #e8e4de;
-    --radius: 14px;
+    --ink: #14181a;
+    --muted: #63706a;
+    --accent: #1f6f4a;
+    --accent-hi: #17583a;
+    --accent-soft: #eaf3ee;
+    --line: #e3e8e4;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(20,24,26,.04), 0 8px 24px rgba(20,24,26,.05);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.65;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.2; }
+  h1, h2, h3, .brand, .badge, .cta {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+  h1, h2, h3 { font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
   /* Nav */
   nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(253,252,250,.92); backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(251,252,251,.9); backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-  nav .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); }
-  nav .links a { color: var(--muted); font-size: .9rem; margin-left: 22px; font-weight: 500; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 12px; }
+  nav .brand { font-weight: 700; font-size: 1.02rem; color: var(--ink); letter-spacing: -.02em; white-space: nowrap; }
+  nav .links { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; }
+  nav .links::-webkit-scrollbar { display: none; }
+  nav .links a { color: var(--muted); font-size: .875rem; font-weight: 500; white-space: nowrap; }
   nav .links a:hover { color: var(--accent); text-decoration: none; }
-  @media (max-width: 640px) { nav .links a { margin-left: 14px; font-size: .82rem; } }
+  @media (max-width: 700px) { nav .links { gap: 14px; } nav .links a { font-size: .8rem; } nav .brand { font-size: .92rem; } }
 
   /* Hero */
-  header { padding: 72px 0 56px; }
+  header { padding: 76px 0 56px; }
   .hero { display: flex; gap: 44px; align-items: center; }
-  @media (max-width: 700px) { .hero { flex-direction: column; text-align: center; } }
+  @media (max-width: 700px) { header { padding: 48px 0 40px; } .hero { flex-direction: column; text-align: center; gap: 28px; } }
   .avatar {
-    width: 190px; height: 190px; border-radius: 50%; object-fit: cover; object-position: top;
-    border: 4px solid var(--surface); box-shadow: 0 4px 24px rgba(28,27,26,.12); flex-shrink: 0;
+    width: 186px; height: 186px; border-radius: 50%; object-fit: cover; object-position: top;
+    border: 4px solid var(--surface); box-shadow: var(--shadow); flex-shrink: 0;
   }
   .avatar-fallback {
-    width: 190px; height: 190px; border-radius: 50%; flex-shrink: 0;
+    width: 186px; height: 186px; border-radius: 50%; flex-shrink: 0;
     background: var(--accent-soft); color: var(--accent);
     display: none; align-items: center; justify-content: center;
-    font-family: 'Fraunces', serif; font-size: 3.2rem; font-weight: 600;
-    border: 4px solid var(--surface); box-shadow: 0 4px 24px rgba(28,27,26,.12);
+    font-family: 'Space Grotesk', sans-serif; font-size: 3.2rem; font-weight: 700;
+    border: 4px solid var(--surface); box-shadow: var(--shadow);
   }
-  .hero h1 { font-size: 2.6rem; margin-bottom: 6px; }
-  .hero .tagline { color: var(--accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
-  .hero .sub { color: var(--muted); font-size: .98rem; margin-bottom: 18px; }
-  .icon-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hero h1 { font-size: 2.7rem; margin-bottom: 8px; }
+  @media (max-width: 700px) { .hero h1 { font-size: 2.1rem; } }
+  .hero .tagline { color: var(--accent); font-weight: 600; font-size: 1.02rem; margin-bottom: 5px; letter-spacing: -.01em; }
+  .hero .sub { color: var(--muted); font-size: .95rem; margin-bottom: 20px; }
+  .icon-row { display: flex; gap: 9px; flex-wrap: wrap; }
   @media (max-width: 700px) { .icon-row { justify-content: center; } }
   .icon-row a {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
-    background: var(--surface); color: var(--ink); font-size: .87rem; font-weight: 500;
-    transition: border-color .15s, box-shadow .15s;
+    background: var(--surface); color: var(--ink); font-size: .855rem; font-weight: 500;
+    transition: border-color .15s, box-shadow .15s, color .15s;
   }
-  .icon-row a:hover { text-decoration: none; border-color: var(--accent); box-shadow: 0 2px 10px rgba(194,94,0,.12); }
+  .icon-row a:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); box-shadow: 0 2px 10px rgba(31,111,74,.12); }
   .icon-row svg { width: 16px; height: 16px; fill: var(--accent); }
 
   /* Sections */
-  section { padding: 44px 0; border-top: 1px solid var(--line); }
-  section h2 { font-size: 1.55rem; margin-bottom: 22px; }
-  section h2::after { content: ""; display: block; width: 44px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 8px; }
+  section { padding: 46px 0; border-top: 1px solid var(--line); scroll-margin-top: 58px; }
+  section h2 { font-size: 1.5rem; margin-bottom: 6px; }
+  section h2::after { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 9px; }
+  .sec-intro { color: var(--muted); font-size: .92rem; margin: 16px 0 22px; }
+  section > .wrap > h2 + *:not(.sec-intro) { margin-top: 24px; }
 
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
   .card {
     background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 24px; transition: box-shadow .15s, border-color .15s;
+    padding: 22px; transition: box-shadow .18s, border-color .18s, transform .18s;
   }
-  .card:hover { border-color: #d8d2ca; box-shadow: 0 4px 18px rgba(28,27,26,.06); }
-  .card h3 { font-size: 1.12rem; margin-bottom: 8px; }
-  .card p { color: var(--muted); font-size: .93rem; }
-  .card .cta {
-    display: inline-block; margin-top: 14px; padding: 9px 18px; border-radius: 8px;
-    background: var(--accent); color: #fff; font-size: .88rem; font-weight: 600;
+  .card:hover { border-color: #c8d8cf; box-shadow: var(--shadow); }
+  .card h3 { font-size: 1.08rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .92rem; }
+  .cta {
+    display: inline-block; margin-top: 16px; padding: 9px 18px; border-radius: 8px;
+    background: var(--accent); color: #fff; font-size: .87rem; font-weight: 600; letter-spacing: -.01em;
+    transition: background .15s;
   }
-  .card .cta:hover { text-decoration: none; filter: brightness(1.08); }
+  .cta:hover { text-decoration: none; background: var(--accent-hi); }
   .badge {
-    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+    display: inline-block; font-size: .68rem; font-weight: 600; letter-spacing: .06em;
     text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
-    padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+    padding: 4px 10px; border-radius: 999px; margin-bottom: 10px;
   }
 
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 700px) { .gallery { grid-template-columns: 1fr; } }
+  .tile {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; cursor: zoom-in; display: flex; flex-direction: column;
+    transition: box-shadow .18s, border-color .18s, transform .18s;
+    text-align: left; font: inherit; color: inherit; padding: 0;
+  }
+  .tile:hover { border-color: #c8d8cf; box-shadow: var(--shadow); transform: translateY(-2px); }
+  .tile .frame {
+    background: #f4f7f5; border-bottom: 1px solid var(--line);
+    aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .tile .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tile .frame.contain img { object-fit: contain; background: #fff; }
+  .tile figcaption { padding: 16px 18px 18px; }
+  .tile .cap-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: .96rem; letter-spacing: -.01em; margin-bottom: 5px; }
+  .tile .cap-text { color: var(--muted); font-size: .855rem; line-height: 1.55; }
+  .tile .cap-src { color: var(--accent); font-size: .77rem; font-weight: 500; margin-top: 7px; display: block; }
+
+  /* Lightbox */
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(12,18,15,.9); display: none; align-items: center; justify-content: center; padding: 28px; }
+  .lb.open { display: flex; }
+  .lb figure { max-width: 1100px; width: 100%; max-height: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .lb img { width: 100%; max-height: 74vh; object-fit: contain; border-radius: 8px; background: #fff; }
+  .lb figcaption { color: #e5ece8; font-size: .88rem; text-align: center; line-height: 1.55; }
+  .lb-close {
+    position: absolute; top: 18px; right: 20px; width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); color: #fff;
+    font-size: 1.3rem; line-height: 1; cursor: pointer;
+  }
+  .lb-close:hover { background: rgba(255,255,255,.18); }
+
   /* Publications */
-  .pub { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .pub {
+    display: block; padding: 16px 40px 16px 0; border-bottom: 1px solid var(--line);
+    position: relative; color: inherit; transition: background .15s;
+    border-radius: 8px;
+  }
   .pub:last-of-type { border-bottom: none; }
-  .pub .authors { font-size: .9rem; color: var(--muted); }
-  .pub .authors strong { color: var(--ink); }
-  .pub .title { font-weight: 500; margin: 2px 0; }
-  .pub .venue { font-size: .85rem; color: var(--accent); font-style: italic; }
-  .pub-note { margin-top: 16px; font-size: .9rem; color: var(--muted); }
+  .pub:hover { text-decoration: none; background: var(--accent-soft); padding-left: 14px; padding-right: 54px; }
+  .pub .authors { font-size: .885rem; color: var(--muted); }
+  .pub .authors strong { color: var(--ink); font-weight: 600; }
+  .pub .title { font-weight: 500; margin: 3px 0; color: var(--ink); }
+  .pub:hover .title { color: var(--accent-hi); }
+  .pub .venue { font-size: .845rem; color: var(--accent); font-style: italic; }
+  .pub .arrow {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); opacity: 0; transition: opacity .15s, right .15s;
+  }
+  .pub:hover .arrow { opacity: 1; right: 20px; }
+  .pub .arrow svg { width: 18px; height: 18px; fill: currentColor; display: block; }
+  .pub-note { margin-top: 18px; font-size: .89rem; color: var(--muted); }
+
+  /* Talks */
+  .talk {
+    display: grid; grid-template-columns: 132px 1fr; gap: 18px;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .talk:last-of-type { border-bottom: none; }
+  @media (max-width: 640px) { .talk { grid-template-columns: 1fr; gap: 4px; } }
+  .talk .when { color: var(--muted); font-size: .84rem; padding-top: 2px; }
+  .talk .kind {
+    display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: .66rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+    padding: 3px 9px; border-radius: 999px; margin-right: 8px; vertical-align: 1px;
+  }
+  .talk .where { font-weight: 600; font-family: 'Space Grotesk', sans-serif; letter-spacing: -.01em; font-size: 1rem; }
+  .talk .what { color: var(--muted); font-size: .9rem; margin-top: 3px; }
+  .talk .what em { color: var(--ink); font-style: italic; }
+
+  /* Media */
+  .media-grid { display: grid; grid-template-columns: 250px 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 700px) { .media-grid { grid-template-columns: 1fr; } }
+  .media-shot {
+    border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+    background: var(--surface); box-shadow: var(--shadow); cursor: zoom-in; padding: 0; display: block; width: 100%;
+  }
+  .media-shot img { width: 100%; display: block; }
+  .media-shot .cap { padding: 10px 14px 12px; font-size: .78rem; color: var(--muted); text-align: left; font-family: 'Inter', sans-serif; }
+  .outlet { padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .outlet:last-child { border-bottom: none; }
+  .outlet .name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: .98rem; letter-spacing: -.01em; }
+  .outlet .desc { color: var(--muted); font-size: .885rem; }
+  .outlet .watch { font-size: .855rem; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; margin-top: 2px; }
+  .outlet .watch svg { width: 13px; height: 13px; fill: currentColor; }
 
   /* Skills */
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
-    padding: 6px 14px; font-size: .85rem; color: var(--ink);
+    padding: 6px 14px; font-size: .845rem; color: var(--ink);
   }
-  .skill-group { margin-bottom: 18px; }
-  .skill-group h3 { font-size: .95rem; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: .05em; font-size: .78rem; }
+  .skill-group { margin-bottom: 20px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h3 {
+    font-family: 'Inter', sans-serif; font-weight: 600; color: var(--muted); margin-bottom: 10px;
+    text-transform: uppercase; letter-spacing: .07em; font-size: .74rem;
+  }
 
   /* Footer */
-  footer { border-top: 1px solid var(--line); padding: 36px 0 48px; text-align: center; color: var(--muted); font-size: .85rem; }
+  footer { border-top: 1px solid var(--line); padding: 34px 0 48px; text-align: center; color: var(--muted); font-size: .84rem; }
   footer a { font-weight: 500; }
 </style>
 </head>
@@ -130,7 +225,10 @@
     <span class="links">
       <a href="#about">About</a>
       <a href="#research">Research</a>
+      <a href="#gallery">Gallery</a>
       <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#media">Media</a>
       <a href="#cv">CVs</a>
       <a href="#contact">Contact</a>
     </span>
@@ -170,7 +268,7 @@
 <section id="about">
   <div class="wrap">
     <h2>About</h2>
-    <p>I'm a solar physicist and computationally focused researcher based at the Astrophysics Research Centre, Queen's University Belfast. My research explores the physics of solar flares — from Lyman-alpha emission to the EUV Late-Phase — using multi-wavelength observations from missions including SDO, GOES, and Solar Orbiter.</p>
+    <p style="margin-top:24px;">I'm a solar physicist and computationally focused researcher based at the Astrophysics Research Centre, Queen's University Belfast. My research explores the physics of solar flares — from Lyman-alpha emission to the EUV Late-Phase — using multi-wavelength observations from missions including SDO, GOES, and Solar Orbiter.</p>
     <p style="margin-top:14px;">Alongside my academic work, I bring over five years of experience in scientific Python programming, automated data pipelines, machine learning, and statistical analysis of large, complex datasets. I've led the largest statistical study of EUV Late-Phase flares to date, spent a research placement at NASA Goddard Space Flight Center, and serve on international science teams including ISSI and the SoSpIM instrument team for JAXA's Solar-C mission.</p>
   </div>
 </section>
@@ -199,42 +297,235 @@
   </div>
 </section>
 
+<section id="gallery">
+  <div class="wrap">
+    <h2>Gallery</h2>
+    <p class="sec-intro">Selected figures from my published work, and a few moments from presenting it. Click any image to enlarge.</p>
+    <div class="gallery">
+
+      <figure class="tile" tabindex="0" role="button"
+        data-src="assets/fig-lya-spectral-response.png"
+        data-caption="Normalised spectral responses of seven Lyman-alpha instruments, convolved with a FISM2 spectrum. Only a fraction of each instrument's signal comes from the Lyman-alpha line itself at 1216 Å — the rest is contaminated by neighbouring lines and continuum, which is why nominally identical Lyman-alpha measurements disagree between missions. Greatorex, Milligan &amp; Dammasch, Solar Physics 299, 162 (2024).">
+        <div class="frame contain"><img src="assets/fig-lya-spectral-response.png" alt="Normalised spectral responses of Lyman-alpha instruments convolved with a FISM2 spectrum" loading="lazy"></div>
+        <figcaption>
+          <div class="cap-title">Why Lyman-alpha instruments disagree</div>
+          <div class="cap-text">Spectral responses of seven Lyman-α instruments convolved with a FISM2 spectrum — out-of-band contamination explains the discrepancies between missions.</div>
+          <span class="cap-src">Solar Physics 299, 162 (2024)</span>
+        </figcaption>
+      </figure>
+
+      <figure class="tile" tabindex="0" role="button"
+        data-src="assets/fig-elp-aia-335.png"
+        data-caption="SDO/AIA Fe XVI 335 Å images of an EUV Late-Phase flare at the main flare peak (left), at the late-phase peak (centre), and the difference between them (right). The late-phase emission originates from a larger, higher loop system spatially distinct from the flaring core. Greatorex et al., Solar Physics 301, 6 (2026).">
+        <div class="frame contain"><img src="assets/fig-elp-aia-335.png" alt="SDO/AIA Fe XVI 335 Angstrom images at flare peak, late-phase peak, and the difference" loading="lazy"></div>
+        <figcaption>
+          <div class="cap-title">The EUV Late-Phase in SDO/AIA</div>
+          <div class="cap-text">Fe XVI 335 Å at flare peak, late-phase peak and their difference — the afterglow comes from a larger, higher loop system than the flare itself.</div>
+          <span class="cap-src">Solar Physics 301, 6 (2026)</span>
+        </figcaption>
+      </figure>
+
+      <figure class="tile" tabindex="0" role="button"
+        data-src="assets/talk-cospar2026-florence.jpg"
+        data-caption="Presenting &quot;Into the Afterglow: A Statistical Analysis of the EUV Late-Phase Observations from the Solar Dynamics Observatory&quot; at the 46th COSPAR Scientific Assembly, Florence, August 2026. The slide shows that the EUV Late-Phase occurrence fraction stays roughly flat across the solar cycle.">
+        <div class="frame"><img src="assets/talk-cospar2026-florence.jpg" alt="Harry Greatorex presenting at COSPAR 2026 in Florence" loading="lazy"></div>
+        <figcaption>
+          <div class="cap-title">COSPAR 2026, Florence</div>
+          <div class="cap-text">Presenting <em>Into the Afterglow</em> — 15 years of SDO data showing no clear solar-cycle dependence in EUV Late-Phase occurrence.</div>
+          <span class="cap-src">46th COSPAR Scientific Assembly · August 2026</span>
+        </figcaption>
+      </figure>
+
+      <figure class="tile" tabindex="0" role="button"
+        data-src="assets/talk-sdo2025-boulder.jpg"
+        data-caption="Title slide from &quot;Instrumental Discrepancies in Lyman-alpha Observations of Solar Flares&quot;, presented at the SDO 2025 Science Workshop, Boulder, Colorado, February 2025. Background image credit: ASO-S/LST-SDI.">
+        <div class="frame"><img src="assets/talk-sdo2025-boulder.jpg" alt="Title slide: Instrumental Discrepancies in Lyman-alpha Observations of Solar Flares, SDO 2025" loading="lazy"></div>
+        <figcaption>
+          <div class="cap-title">SDO 2025 Science Workshop</div>
+          <div class="cap-text">Talk on instrumental effects in Lyman-α measurements across SDO, ASO-S, Solar Orbiter, MAVEN, GOES and PROBA2.</div>
+          <span class="cap-src">Boulder, Colorado · February 2025</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
 <section id="publications">
   <div class="wrap">
     <h2>Selected Publications</h2>
-    <div class="pub">
+    <p class="sec-intro">Each entry links to the published article.</p>
+
+    <a class="pub" href="https://doi.org/10.1007/s11207-026-02673-7" target="_blank" rel="noopener">
       <p class="title">The EUV Late-Phase: Statistical Results from 15 Years of Solar Dynamics Observatory Observations</p>
       <p class="authors"><strong>Greatorex H.J.</strong>, O'Hare A.N., Bekker S., Campbell R.C., Keane D.C., Milligan R.O.</p>
-      <p class="venue">Solar Physics (2026)</p>
-    </div>
-    <div class="pub">
+      <p class="venue">Solar Physics 301, 6 (2026)</p>
+      <span class="arrow"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.76 14.83l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6z"/></svg></span>
+    </a>
+
+    <a class="pub" href="https://doi.org/10.3390/atmos16080937" target="_blank" rel="noopener">
       <p class="title">Investigating a Characteristic Time Lag in the Ionospheric F-Region's Response to Solar Flares</p>
       <p class="authors">O'Hare A.N., Bekker S., <strong>Greatorex H.J.</strong>, Milligan R.O.</p>
-      <p class="venue">Atmosphere (2025)</p>
-    </div>
-    <div class="pub">
+      <p class="venue">Atmosphere 16, 937 (2025)</p>
+      <span class="arrow"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.76 14.83l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6z"/></svg></span>
+    </a>
+
+    <a class="pub" href="https://doi.org/10.1007/s11207-025-02476-2" target="_blank" rel="noopener">
       <p class="title">Spectral Irradiance Variability in Lyman-Alpha Emission During Solar Flares</p>
       <p class="authors">Majury L., Milligan R.O., Butler E., <strong>Greatorex H.J.</strong>, Kazachenko M.</p>
       <p class="venue">Solar Physics (2025)</p>
-    </div>
-    <div class="pub">
+      <span class="arrow"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.76 14.83l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6z"/></svg></span>
+    </a>
+
+    <a class="pub" href="https://doi.org/10.1007/s11207-024-02407-7" target="_blank" rel="noopener">
       <p class="title">On the Instrumental Discrepancies in Lyman-alpha Observations of Solar Flares</p>
       <p class="authors"><strong>Greatorex H.J.</strong>, Milligan R.O., Dammasch I.E.</p>
-      <p class="venue">Solar Physics (2024)</p>
-    </div>
-    <div class="pub">
+      <p class="venue">Solar Physics 299, 162 (2024)</p>
+      <span class="arrow"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.76 14.83l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6z"/></svg></span>
+    </a>
+
+    <a class="pub" href="https://doi.org/10.3847/1538-4357/acea7f" target="_blank" rel="noopener">
       <p class="title">Observational Analysis of Lyman-alpha Emission in Equivalent Magnitude Solar Flares</p>
       <p class="authors"><strong>Greatorex H.J.</strong>, Milligan R.O., Chamberlin P.C.</p>
-      <p class="venue">Astrophysical Journal (2023)</p>
-    </div>
+      <p class="venue">The Astrophysical Journal 954, 120 (2023)</p>
+      <span class="arrow"><svg viewBox="0 0 24 24"><path d="M14 3v2h3.59L7.76 14.83l1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6z"/></svg></span>
+    </a>
+
     <p class="pub-note">Full publication record on <a href="https://orcid.org/0000-0002-5302-0887" target="_blank" rel="noopener">ORCID</a>.</p>
+  </div>
+</section>
+
+<section id="talks">
+  <div class="wrap">
+    <h2>Talks &amp; Conferences</h2>
+    <p class="sec-intro">Selected presentations at international meetings. Venue names link to the meeting.</p>
+
+    <div class="talk">
+      <div class="when">August 2026</div>
+      <div>
+        <div><span class="kind">Talk</span><a class="where" href="https://cospar2026.org/" target="_blank" rel="noopener">46th COSPAR Scientific Assembly</a></div>
+        <div class="what"><em>Into the Afterglow: A Statistical Analysis of the EUV Late-Phase Observations from the Solar Dynamics Observatory</em> — Florence, Italy.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">March 2026</div>
+      <div>
+        <div><span class="kind">Invited · Outreach</span><span class="where">U3A Astronomy Group</span></div>
+        <div class="what"><em>Don't Look Back Into The Sun: A Journey Through the Observational Discovery and Understanding of Solar Flares</em>.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">June 2025</div>
+      <div>
+        <div><span class="kind">Session Chair</span><a class="where" href="https://sites.google.com/view/hinode-18-iris-16-meeting/home" target="_blank" rel="noopener">Hinode-18 / IRIS-16 Joint Science Meeting</a></div>
+        <div class="what">Invited to chair “Energy and Mass Transfer throughout the Solar Atmosphere” and assist the LOC — UCL, London.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">February 2025</div>
+      <div>
+        <div><span class="kind">Talk</span><a class="where" href="https://sdo2025.sdo-workshops.org/" target="_blank" rel="noopener">SDO 2025 Science Workshop</a></div>
+        <div class="what">Instrumental effects on EUV measurements across observing regimes, calibration techniques and vantage points — SDO, ASO-S, Solar Orbiter, MAVEN, GOES and PROBA2. Boulder, Colorado.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">July 2024</div>
+      <div>
+        <div><span class="kind">Talk</span><a class="where" href="https://solar.physics.montana.edu/h17_i14_s3/" target="_blank" rel="noopener">Hinode / IRIS / SPHERE Joint Science Meeting</a></div>
+        <div class="what">The relationship between nonthermal electrons and Lyman-alpha emission in solar flares — MSU Bozeman, Montana.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">June 2024</div>
+      <div>
+        <div><span class="kind">Invited</span><a class="where" href="https://sun.ethz.ch/news-and-events/News/2024/02/sospim-science-meeting.html" target="_blank" rel="noopener">SoSpIM Science Meeting</a></div>
+        <div class="what">Invited talk on active and past projects to the SoSpIM instrument team, and planning of collaborative Lyman-alpha projects — PMOD/WRC &amp; ETH, Davos, Switzerland.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">April 2024</div>
+      <div>
+        <div><span class="kind">Poster</span><a class="where" href="https://eclipse2024sa.com/" target="_blank" rel="noopener">Solar Orbiter / Parker Solar Probe / DKIST Joint Meeting</a></div>
+        <div class="what">Nonthermal electrons and Lyman-alpha emission in solar flares — SwRI, San Antonio, Texas.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">November 2023</div>
+      <div>
+        <div><span class="kind">Seminar</span><span class="where">QUB Astrophysics Research Centre</span></div>
+        <div class="what"><em>Observational Analysis of Lyman-alpha Emission in Equivalent Magnitude Solar Flares</em> — Belfast, UK.</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">July 2023</div>
+      <div>
+        <div><span class="kind">Talk</span><a class="where" href="https://lasp.colorado.edu/eve/2023/08/16/eve-science-workshop-july-2023/" target="_blank" rel="noopener">SDO/EVE Science Meeting</a></div>
+        <div class="what">Presentation to the SDO/EVE team on nonthermal electrons and Lyman-alpha emission — LASP, Boulder, Colorado (online).</div>
+      </div>
+    </div>
+
+    <div class="talk">
+      <div class="when">March 2023</div>
+      <div>
+        <div><span class="kind">Invited Seminar</span><span class="where">NASA Goddard Heliophysics Division</span></div>
+        <div class="what"><em>Observational Analysis of Lyman-alpha Emission in Equivalent Magnitude Solar Flares</em> — Greenbelt, Maryland.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="media">
+  <div class="wrap">
+    <h2>Media Appearances</h2>
+    <p class="sec-intro">Broadcast and press coverage around the <strong>Solar Eclipse at Queen's University Belfast, August 2026</strong>.</p>
+    <div class="media-grid">
+
+      <figure class="media-shot" tabindex="0" role="button"
+        data-src="assets/media-belfast-live.jpg"
+        data-caption="Belfast Live / Daily Mirror — eclipse interview with Dr Harry Greatorex, filmed in the Quad at Queen's University Belfast, August 2026.">
+        <img src="assets/media-belfast-live.jpg" alt="Belfast Live video interview with Dr Harry Greatorex at Queen's University Belfast" loading="lazy">
+        <figcaption class="cap">Belfast Live / Daily Mirror — filmed in the Quad at Queen's, August 2026.</figcaption>
+      </figure>
+
+      <div>
+        <div class="outlet">
+          <div class="name">The Irish News</div>
+          <div class="desc">Interview on the eclipse and what it reveals about the Sun.</div>
+          <a class="watch" href="https://www.instagram.com/reel/Db83b4Emyt_/?stkn=MWRnZjZyNjUzeXduNA==" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Watch the interview
+          </a>
+        </div>
+        <div class="outlet">
+          <div class="name">Belfast Live / Daily Mirror</div>
+          <div class="desc">Video interview on the eclipse chase, filmed on campus.</div>
+        </div>
+        <div class="outlet">
+          <div class="name">BBC News NI</div>
+          <div class="desc">Broadcast interview on the solar eclipse.</div>
+        </div>
+        <div class="outlet">
+          <div class="name">UTV — <em>On The Ground</em></div>
+          <div class="desc">Feature contribution, airing October 2026.</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <section id="skills">
   <div class="wrap">
     <h2>Skills</h2>
-    <div class="skill-group">
+    <div class="skill-group" style="margin-top:24px;">
       <h3>Programming &amp; Tools</h3>
       <div class="chips">
         <span class="chip">Python</span><span class="chip">NumPy / pandas / SciPy</span><span class="chip">PyTorch</span><span class="chip">scikit-learn</span><span class="chip">SunPy / Astropy</span><span class="chip">SQL</span><span class="chip">IDL (SolarSoft)</span><span class="chip">Linux / Bash</span><span class="chip">Git</span><span class="chip">LaTeX</span>
@@ -249,7 +540,7 @@
     <div class="skill-group">
       <h3>Leadership &amp; Communication</h3>
       <div class="chips">
-        <span class="chip">Project leadership</span><span class="chip">Mentoring &amp; supervision</span><span class="chip">Peer-reviewed publication</span><span class="chip">Conference speaking</span><span class="chip">Science outreach</span>
+        <span class="chip">Project leadership</span><span class="chip">Mentoring &amp; supervision</span><span class="chip">Peer-reviewed publication</span><span class="chip">Conference speaking</span><span class="chip">Science outreach</span><span class="chip">Broadcast media</span>
       </div>
     </div>
   </div>
@@ -258,7 +549,7 @@
 <section id="cv">
   <div class="wrap">
     <h2>Curriculum Vitae</h2>
-    <div class="two-col">
+    <div class="two-col" style="margin-top:24px;">
       <div class="card">
         <span class="badge">Academic</span>
         <h3>Academic CV</h3>
@@ -278,7 +569,7 @@
 <section id="contact">
   <div class="wrap">
     <h2>Contact</h2>
-    <p>The best way to reach me is by email at <a href="mailto:hgreatorex01@gmail.com">hgreatorex01@gmail.com</a> (or <a href="mailto:h.greatorex@qub.ac.uk">h.greatorex@qub.ac.uk</a> for academic matters), or connect with me on <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    <p style="margin-top:24px;">The best way to reach me is by email at <a href="mailto:hgreatorex01@gmail.com">hgreatorex01@gmail.com</a> (or <a href="mailto:h.greatorex@qub.ac.uk">h.greatorex@qub.ac.uk</a> for academic matters), or connect with me on <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
 </section>
 
@@ -287,6 +578,51 @@
     <p>&copy; 2026 Harry Greatorex &middot; <a href="https://orcid.org/0000-0002-5302-0887" target="_blank" rel="noopener">ORCID</a> &middot; <a href="https://www.linkedin.com/in/hgreatorex/" target="_blank" rel="noopener">LinkedIn</a></p>
   </div>
 </footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <figure>
+    <img id="lb-img" src="" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb'),
+      img = document.getElementById('lb-img'),
+      cap = document.getElementById('lb-cap'),
+      last = null;
+
+  function open(el) {
+    img.src = el.getAttribute('data-src');
+    img.alt = el.querySelector('img') ? el.querySelector('img').alt : '';
+    cap.textContent = el.getAttribute('data-caption') || '';
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    last = el;
+    document.getElementById('lb-close').focus();
+  }
+  function close() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    img.src = '';
+    if (last) { last.focus(); last = null; }
+  }
+
+  document.querySelectorAll('[data-src][data-caption]').forEach(function (el) {
+    el.addEventListener('click', function () { open(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); }
+    });
+  });
+
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.id === 'lb-close') close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
 
 </body>
 </html>
